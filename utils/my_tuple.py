@@ -1,5 +1,5 @@
 
-class MyTuple():
+class MyTuple:
 
     def __init__(self, data=None):
         super(MyTuple, self).__init__()

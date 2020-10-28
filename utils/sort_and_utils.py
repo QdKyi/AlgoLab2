@@ -27,24 +27,25 @@ def calendar_handler(calendar):
 
     final_list = MyList()
 
-    for i in range(calendar.__len__()):
-        if i >= calendar.__len__():
+    start_time, end_time = calendar[0]
+
+    for i in range(0, len(calendar)):
+        if i < len(calendar) - 1:
+            next_elem = calendar[i+1]
+        if i >= len(calendar) - 1:
+            final_list.append((start_time, calendar[i][1]))
             break
-        start_time = calendar[i][0]
-        end_time = calendar[i][1]
-        for j in range(i + 1, calendar.__len__()):
-            if end_time >= calendar[i + 1][0] and end_time >= calendar[i + 1][1]:
+        if end_time >= next_elem[0] and end_time >= next_elem[1]:
 
-                end_time = calendar[i][1]
+            end_time = calendar[i][1]
 
-                calendar.remove(calendar[i + 1])
-            elif calendar[i + 1][1] >= end_time >= calendar[i + 1][0]:
+        elif next_elem[1] >= end_time >= next_elem[0]:
 
-                end_time = calendar[i + 1][1]
+            end_time = next_elem[1]
 
-                calendar.remove(calendar[i + 1])
-
-        final_list.append((start_time, end_time))
+        else:
+            final_list.append((start_time, end_time))
+            start_time, end_time = next_elem
 
     return final_list
 
