@@ -4,17 +4,6 @@ from .my_list import MyList
 from .my_tuple import MyTuple
 
 
-def insertion_sort(given_array):
-    for i in range(1, len(given_array)):
-        if i + 1 >= len(given_array):
-            break
-        current_position = i
-
-        while current_position > 0 and given_array[i][0] < given_array[i - 1][0]:
-            swap(given_array, current_position, current_position - 1)
-    return given_array
-
-
 def partition(given_array, start, end):
     pivot = given_array[start][0]
     low = start + 1
