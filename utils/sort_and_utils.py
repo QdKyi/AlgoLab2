@@ -1,7 +1,7 @@
 from random import shuffle
 
-from utils.my_list import MyList
-from utils.my_tuple import MyTuple
+from .my_list import MyList
+from .my_tuple import MyTuple
 
 
 def insertion_sort(given_array):
@@ -94,7 +94,11 @@ def calendar_handler(calendar):
     return final_list
 
 
-if __name__ == '__main__':
+def main():
     import doctest
 
     doctest.testmod(verbose=True)
+
+
+if __name__ == '__main__':
+    main()
