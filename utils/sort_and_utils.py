@@ -60,7 +60,7 @@ def calendar_handler(calendar):
 
     final_list = MyList()
 
-    start_time, end_time = calendar[0]
+    start_time, end_time = calendar[0][0], calendar[0][1]
 
     for i in range(0, len(calendar)):
         if i < len(calendar) - 1:
@@ -78,7 +78,7 @@ def calendar_handler(calendar):
 
         else:
             final_list.append((start_time, end_time))
-            start_time, end_time = next_elem
+            start_time, end_time = next_elem[0], next_elem[1]
 
     return final_list
 
